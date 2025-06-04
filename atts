@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AT&T Agency - AI Solutions for Trinidad</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0a1929, #1a3a5f);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .flyer {
+            width: 100%;
+            max-width: 900px;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            position: relative;
+        }
+        
+        .header {
+            background: linear-gradient(90deg, #0066cc, #00aaff);
+            color: white;
+            padding: 40px 30px 60px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .logo-container {
+            margin-bottom: 25px;
+        }
+        
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            font-weight: 800;
+            font-size: 3.8rem;
+            background: white;
+            color: #0066cc;
+            padding: 15px 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .logo .at {
+            position: relative;
+        }
+        
+        .logo .at:after {
+            content: "&";
+            position: absolute;
+            top: -12px;
+            right: -20px;
+            font-size: 1.8rem;
+            color: #ff6600;
+        }
+        
+        .logo .t {
+            margin-left: 35px;
+        }
+        
+        .tagline {
+            font-size: 1.4rem;
+            max-width: 600px;
+            margin: 10px auto 0;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+        
+        .contact-bar {
+            background: #ff6600;
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-around;
+            font-size: 1.3rem;
+            font-weight: 500;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .services {
+            padding: 40px 30px;
+        }
+        
+        .section-title {
+            text-align: center;
+            color: #0066cc;
+            font-size: 2.2rem;
+            margin-bottom: 35px;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: #ff6600;
+            border-radius: 2px;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .service-card {
+            background: #f8f9ff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 50, 150, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 80, 200, 0.15);
+        }
+        
+        .service-header {
+            background: linear-gradient(90deg, #0066cc, #0099ff);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .service-title {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        .package {
+            margin-bottom: 22px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #ddd;
+        }
+        
+        .package:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .package-name {
+            font-weight: 700;
+            color: #0066cc;
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+        
+        .price {
+            font-weight: 800;
+            color: #ff6600;
+            font-size: 1.5rem;
+            margin: 10px 0;
+        }
+        
+        .features {
+            list-style-type: none;
+            margin: 15px 0 0 0;
+        }
+        
+        .features li {
+            padding: 6px 0;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .features li:before {
+            content: "✓";
+            color: #00aa55;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .currency {
+            font-size: 1rem;
+            color: #666;
+            font-weight: normal;
+        }
+        
+        .note {
+            text-align: center;
+            margin-top: 40px;
+            padding: 15px;
+            background: #fff8e6;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            color: #e65100;
+            border: 1px dashed #ffb74d;
+            max-width: 800px;
+            margin: 40px auto 0;
+        }
+        
+        .footer {
+            background: #0a1929;
+            color: #a0c4ff;
+            text-align: center;
+            padding: 20px;
+            font-size: 1.1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.8rem;
+                padding: 12px 20px;
+            }
+            
+            .contact-bar {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            .contact-item {
+                justify-content: center;
+            }
+            
+            .service-card {
+                max-width: 350px;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="flyer">
+        <div class="header">
+            <div class="logo-container">
+                <div class="logo">
+                    <span class="at">AT</span>
+                    <span class="t">T</span>
+                </div>
+            </div>
+            <h1>AI & Technology Solutions</h1>
+            <p class="tagline">Cutting-edge digital solutions tailored for Trinidad's business landscape</p>
+        </div>
+        
+        <div class="contact-bar">
+            <div class="contact-item">
+                <i class="fas fa-phone-alt"></i>
+                <span>+1 868-296-6808</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>Attagency00@gmail.com</span>
+            </div>
+        </div>
+        
+        <div class="services">
+            <h2 class="section-title">Our Services & Pricing</h2>
+            
+            <div class="services-grid">
+                <!-- Website Development -->
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3 class="service-title">Website Development</h3>
+                    </div>
+                    <div class="service-content">
+                        <div class="package">
+                            <div class="package-name">Basic Website</div>
+                            <div class="price">TT$ 3,500 <span class="currency">(~$515 USD)</span></div>
+                            <ul class="features">
+                                <li>5-page responsive design</li>
+                                <li>Basic SEO setup</li>
+                                <li>Contact form</li>
+                                <li>1-month support</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="package">
+                            <div class="package-name">Business Website</div>
+                            <div class="price">TT$ 8,500 <span class="currency">(~$1,250 USD)</span></div>
+                            <ul class="features">
+                                <li>Up to 15 pages</li>
+                                <li>Custom design</li>
+                                <li>CMS integration</li>
+                                <li>SEO optimized</li>
+                                <li>3-month support</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="package">
+                            <div class="package-name">E-Commerce Website</div>
+                            <div class="price">TT$ 18,000 <span class="currency">(~$2,650 USD)</span></div>
+                            <ul class="features">
+                                <li>Full online store setup</li>
+                                <li>Payment gateway integration</li>
+                                <li>Inventory management</li>
+                                <li>Product management</li>
+                                <li>6-month support</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- AI Agents -->
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3 class="service-title">AI Agents</h3>
+                    </div>
+                    <div class="service-content">
+                        <div class="package">
+                            <div class="package-name">Basic Chatbot</div>
+                            <div class="price">TT$ 6,800 <span class="currency">(~$1,000 USD)</span></div>
+                            <ul class="features">
+                                <li>Rule-based chatbot</li>
+                                <li>Website integration</li>
+                                <li>Basic Q&A training</li>
+                                <li>1-month maintenance</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="package">
+                            <div class="package-name">AI Customer Service</div>
+                            <div class="price">TT$ 15,300 <span class="currency">(~$2,250 USD)</span></div>
+                            <ul class="features">
+                                <li>Natural language processing</li>
+                                <li>CRM integration</li>
+                                <li>Multi-channel deployment</li>
+                                <li>Custom training</li>
+                                <li>3-month maintenance</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="package">
+                            <div class="package-name">Enterprise AI Agent</div>
+                            <div class="price">TT$ 34,000+ <span class="currency">(~$5,000+ USD)</span></div>
+                            <ul class="features">
+                                <li>Custom AI development</li>
+                                <li>Predictive analytics</li>
+                                <li>Machine learning integration</li>
+                                <li>API integrations</li>
+                                <li>Ongoing optimization</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- App Development -->
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3 class="service-title">App Development</h3>
+                    </div>
+                    <div class="service-content">
+                        <div class="package">
+                            <div class="package-name">Basic Mobile App</div>
+                            <div class="price">TT$ 13,600 <span class="currency">(~$2,000 USD)</span></div>
+                            <ul class="features">
+                                <li>Single platform (iOS or Android)</li>
+                                <li>Basic UI/UX design</li>
+                                <li>Core functionality</li>
+                                <li>3-month support</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="package">
+                            <div class="package-name">Business App</div>
+                            <div class="price">TT$ 27,200 <span class="currency">(~$4,000 USD)</span></div>
+                            <ul class="features">
+                                <li>Cross-platform development</li>
+                                <li>Custom UI/UX design</li>
+                                <li>API integrations</li>
+                                <li>User authentication</li>
+                                <li>6-month support</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="package">
+                            <div class="package-name">Enterprise App</div>
+                            <div class="price">TT$ 54,400+ <span class="currency">(~$8,000+ USD)</span></div>
+                            <ul class="features">
+                                <li>Advanced functionality</li>
+                                <li>Custom backend</li>
+                                <li>Real-time features</li>
+                                <li>Admin dashboard</li>
+                                <li>1-year support & updates</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="note">
+                <i class="fas fa-info-circle"></i> All prices are in Trinidad and Tobago Dollars (TT$). Custom solutions available. Prices may vary based on specific requirements. Contact us for a personalized quote!
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>© 2023 AT&T Agency | Transforming Businesses with AI Technology | Trinidad & Tobago</p>
+        </div>
+    </div>
+</body>
+</html>
